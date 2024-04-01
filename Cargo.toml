@@ -5,12 +5,15 @@ edition = "2021"
 
 # See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
 
-build-std = ["core", "compiler_builtins"]
+
 [dependencies]
+bootloader = "0.11.7"
+
 
 [profile.dev]
 panic = "abort"
 
 [profile.release]
 panic = "abort"
+
 
