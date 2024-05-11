@@ -7,7 +7,7 @@ use std::{print, println};
 
 static HELLO: &[u8] = b"Hello World!";
 
-#![reexport_test_harness_main = "test_main"]
+#[reexport_test_harness_main = "test_main"]
 
 #[no_mangle]
 pub extern "C" fn _start() -> ! {
@@ -30,7 +30,7 @@ fn panic(info: &PanicInfo) -> ! {
 }
 
 #![feature(custom_test_frameworks)]
-#![test_runner(crate::test_runner)]
+#[test_runner(crate::test_runner)]
 
 #[cfg(test)]
 pub fn test_runner(tests: &[&dyn Fn()]) {
